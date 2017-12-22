@@ -1,6 +1,6 @@
 NAME=linux
-VERSION=4.15rc3
-REVISION=2
-SRC=https://git.kernel.org/torvalds/t/linux-4.15-rc3.tar.gz
-SRCMD5=ccf3ecac9fc1fc7f4ca32b3ff3a14448
+VERSION=4.15rc4
+REVISION=3
+SRC=https://git.kernel.org/torvalds/t/linux-4.15-rc4.tar.gz
+SRCMD5=f9653c67cc7db9bd71ff69dc98c9b41e
 STRIP=no
