@@ -1,6 +1,6 @@
 NAME=linux
-VERSION=4.15
-REVISION=7
-SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.15.tar.xz
-SRCMD5=0d701ac1e2a67d47ce7127432df2c32b
+VERSION=4.16rc1
+REVISION=8
+SRC=https://git.kernel.org/torvalds/t/linux-4.16-rc1.tar.gz
+SRCMD5=6d7c21d05f6ddf476040ec5863b0d90c
 STRIP=no
