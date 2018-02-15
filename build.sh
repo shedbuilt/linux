@@ -10,7 +10,7 @@ case "$SHED_DEVICE" in
         ;;
     aml-s905x-cc)
         SHDPKG_ARCH='arm64'
-        SHDPKG_DTBFILE='meson-gxl-s905x-libretech-cc.dtb'
+        SHDPKG_DTBFILE='amlogic/meson-gxl-s905x-libretech-cc.dtb'
         ;;
     *)
         echo "Unsupported config: $SHED_DEVICE"
