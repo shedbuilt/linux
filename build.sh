@@ -34,8 +34,8 @@ mkimage -A $SHDPKG_ARCH \
         -e $SHDPKG_KERNEL_LOAD \
         "${SHDPKG_BOOTPATH}/uImage" || exit 1
 mkdir -v "${SHED_FAKEROOT}/boot"
-install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16rc1"
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16rc1-uImage"
-install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16rc1-${SHED_DEVICE}.dtb"
+install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16rc2"
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16rc2-uImage"
+install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16rc2-${SHED_DEVICE}.dtb"
 install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16"
 cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16"
