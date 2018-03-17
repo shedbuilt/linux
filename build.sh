@@ -1,8 +1,20 @@
 #!/bin/bash
 case "$SHED_DEVICE" in
+    all-h3-cc)
+        SHDPKG_KERNEL_ARCH='arm'
+        SHDPKG_DTBFILE='sun8i-h3-libretech-all-h3-cc.dtb'
+        SHDPKG_KERNEL_LOAD='0x40008000'
+        SHDPKG_KERNEL_COMP='gzip'
+        ;;
     orangepi-one)
         SHDPKG_KERNEL_ARCH='arm'
         SHDPKG_DTBFILE='sun8i-h3-orangepi-one.dtb'
+        SHDPKG_KERNEL_LOAD='0x40008000'
+        SHDPKG_KERNEL_COMP='gzip'
+        ;;
+    orangepi-lite)
+        SHDPKG_KERNEL_ARCH='arm'
+        SHDPKG_DTBFILE='sun8i-h3-orangepi-lite.dtb'
         SHDPKG_KERNEL_LOAD='0x40008000'
         SHDPKG_KERNEL_COMP='gzip'
         ;;
@@ -43,7 +55,7 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         "${SHDPKG_BOOTPATH}/uImage" &&
 mkdir -v "${SHED_FAKEROOT}/boot" &&
 install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16rc5" &&
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16rc5-uImage" &&
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16rc5-${SHED_DEVICE}-uImage" &&
 install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16rc5-${SHED_DEVICE}.dtb" &&
 install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16" &&
 cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16"
