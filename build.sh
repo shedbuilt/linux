@@ -23,13 +23,13 @@ case "$SHED_DEVICE" in
         exit 1
         ;;
 esac
-SHDPKG_BOOTPATH="arch/${SHDPKG_ARCH}/boot"
+SHDPKG_BOOTPATH="arch/${SHDPKG_KERNEL_ARCH}/boot"
 SHDPKG_KERNEL_IMG="${SHDPKG_BOOTPATH}/Image"
 cp "${SHED_CONTRIBDIR}/${SHED_DEVICE}.config" .config && \
 make -j $SHED_NUMJOBS Image dtbs modules && \
 INSTALL_MOD_PATH="$SHED_FAKEROOT" make modules_install || exit 1
 if [ "$SHDPKG_KERNEL_COMP" == 'gzip' ]; then
-    gzip "${SHDPKG_BOOTPATH}/Image" || exit 1
+    gzip "$SHDPKG_KERNEL_IMG" || exit 1
     SHDPKG_KERNEL_IMG="${SHDPKG_BOOTPATH}/Image.gz"
 fi
 mkimage -A $SHDPKG_KERNEL_ARCH \
@@ -39,7 +39,7 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         -d "$SHDPKG_KERNEL_IMG" \
         -a $SHDPKG_KERNEL_LOAD \
         -e $SHDPKG_KERNEL_LOAD \
-        -n 'Shedbuilt Linux 4.16rc5'
+        -n 'Shedbuilt Linux 4.16rc5' \
         "${SHDPKG_BOOTPATH}/uImage" &&
 mkdir -v "${SHED_FAKEROOT}/boot" &&
 install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16rc5" &&
