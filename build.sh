@@ -51,11 +51,11 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         -d "$SHDPKG_KERNEL_IMG" \
         -a $SHDPKG_KERNEL_LOAD \
         -e $SHDPKG_KERNEL_LOAD \
-        -n 'Shedbuilt Linux 4.16rc5' \
+        -n 'Shedbuilt Linux 4.16rc6' \
         "${SHDPKG_BOOTPATH}/uImage" &&
 mkdir -v "${SHED_FAKEROOT}/boot" &&
-install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16rc5" &&
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16rc5-${SHED_DEVICE}-uImage" &&
-install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16rc5-${SHED_DEVICE}.dtb" &&
+install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16rc6" &&
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16rc6-uImage" &&
+install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16rc6.dtb" &&
 install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16" &&
 cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16"
