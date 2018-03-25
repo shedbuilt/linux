@@ -24,6 +24,12 @@ case "$SHED_DEVICE" in
         SHDPKG_KERNEL_LOAD='0x40008000'
         SHDPKG_KERNEL_COMP='gzip'
         ;;
+    orangepi-pc2)
+	SHDPKG_KERNEL_ARCH='arm64'
+        SHDPKG_DTBFILE='allwinner/sun50i-h5-orangepi-pc2.dtb'
+        SHDPKG_KERNEL_LOAD='0x40080000'
+        SHDPKG_KERNEL_COMP='none'
+	;;
     aml-s905x-cc)
         SHDPKG_KERNEL_ARCH='arm64'
         SHDPKG_DTBFILE='amlogic/meson-gxl-s905x-libretech-cc.dtb'
