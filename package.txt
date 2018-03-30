@@ -1,8 +1,8 @@
 NAME=linux
-VERSION=4.16rc6
-REVISION=24
+VERSION=4.16rc7
+REVISION=25
 LICENSE=GPL-2.0-only
-SRC=https://git.kernel.org/torvalds/t/linux-4.16-rc6.tar.gz
-SRCMD5=0409803c5198f8af785b68feaffece6c
+SRC=https://git.kernel.org/torvalds/t/linux-4.16-rc7.tar.gz
+SRCMD5=e23d5ce36687afa5dbf7469ad8dbaa1c
 BINFILE=${NAME}_${VERSION}-${REVISION}_${SHED_RELEASE}_${SHED_DEVICE}.${BINARCHEXT}
 STRIP=no
