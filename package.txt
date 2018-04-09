@@ -1,8 +1,8 @@
 NAME=linux
-VERSION=4.16
-REVISION=26
+VERSION=4.16.1
+REVISION=27
 LICENSE=GPL-2.0-only
-SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.tar.xz
-SRCMD5=1357fb4ee7c288fdeac5d4e0048f5c18
+SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.1.tar.xz
+SRCMD5=16123b843ad2efa394a060d8f72c91c2
 BINFILE=${NAME}_${VERSION}-${REVISION}_${SHED_RELEASE}_${SHED_DEVICE}.${BINARCHEXT}
 STRIP=no
