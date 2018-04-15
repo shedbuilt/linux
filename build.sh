@@ -43,9 +43,9 @@ case "$SHED_DEVICE" in
 esac
 SHDPKG_BOOTPATH="arch/${SHDPKG_KERNEL_ARCH}/boot"
 SHDPKG_KERNEL_IMG="${SHDPKG_BOOTPATH}/Image"
-cp "${SHED_CONTRIBDIR}/${SHED_DEVICE}.config" .config && \
-make -j $SHED_NUMJOBS Image dtbs modules && \
-INSTALL_MOD_PATH="$SHED_FAKEROOT" make modules_install || exit 1
+cp "${SHED_PKG_CONTRIB_DIR}/${SHED_DEVICE}.config" .config && \
+make -j $SHED_NUM_JOBS Image dtbs modules && \
+INSTALL_MOD_PATH="$SHED_FAKE_ROOT" make modules_install || exit 1
 if [ "$SHDPKG_KERNEL_COMP" == 'gzip' ]; then
     gzip "$SHDPKG_KERNEL_IMG" || exit 1
     SHDPKG_KERNEL_IMG="${SHDPKG_BOOTPATH}/Image.gz"
@@ -59,9 +59,9 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         -e $SHDPKG_KERNEL_LOAD \
         -n 'Shedbuilt Linux 4.16.1' \
         "${SHDPKG_BOOTPATH}/uImage" &&
-mkdir -v "${SHED_FAKEROOT}/boot" &&
-install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16.1" &&
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16.1-uImage" &&
-install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16.1.dtb" &&
-install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.1" &&
-cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.1"
+mkdir -v "${SHED_FAKE_ROOT}/boot" &&
+install -m644 System.map "${SHED_FAKE_ROOT}/boot/System.map-4.16.1" &&
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKE_ROOT}/boot/linux-4.16.1-uImage" &&
+install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKE_ROOT}/boot/linux-4.16.1.dtb" &&
+install -dm755 "${SHED_FAKE_ROOT}/usr/share/doc/linux-4.16.1" &&
+cp -r Documentation/* "${SHED_FAKE_ROOT}/usr/share/doc/linux-4.16.1"

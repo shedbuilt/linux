@@ -1,6 +1,6 @@
 NAME=linux
 VERSION=4.16.1
-REVISION=27
+REVISION=1
 LICENSE=GPL-2.0-only
 SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.1.tar.xz
 SRCMD5=16123b843ad2efa394a060d8f72c91c2
