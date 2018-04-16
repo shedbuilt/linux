@@ -57,11 +57,11 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         -d "$SHDPKG_KERNEL_IMG" \
         -a $SHDPKG_KERNEL_LOAD \
         -e $SHDPKG_KERNEL_LOAD \
-        -n 'Shedbuilt Linux 4.16.1' \
+        -n "Shedbuilt Linux ${SHED_PKG_VERSION}" \
         "${SHDPKG_BOOTPATH}/uImage" &&
 mkdir -v "${SHED_FAKE_ROOT}/boot" &&
-install -m644 System.map "${SHED_FAKE_ROOT}/boot/System.map-4.16.1" &&
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKE_ROOT}/boot/linux-4.16.1-uImage" &&
-install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKE_ROOT}/boot/linux-4.16.1.dtb" &&
-install -dm755 "${SHED_FAKE_ROOT}/usr/share/doc/linux-4.16.1" &&
-cp -r Documentation/* "${SHED_FAKE_ROOT}/usr/share/doc/linux-4.16.1"
+install -m644 System.map "${SHED_FAKE_ROOT}/boot/System-${SHED_PKG_VERSION}.map" &&
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKE_ROOT}/boot/linux-${SHED_PKG_VERSION}-${SHED_DEVICE}-uImage" &&
+install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKE_ROOT}/boot/linux-${SHED_PKG_VERSION}-${SHED_DEVICE}.dtb" &&
+install -dm755 "${SHED_FAKE_ROOT}/usr/share/doc/linux-${SHED_PKG_VERSION}" &&
+cp -r Documentation/* "${SHED_FAKE_ROOT}/usr/share/doc/linux-${SHED_PKG_VERSION}"
