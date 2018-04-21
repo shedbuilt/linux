@@ -25,11 +25,35 @@ case "$SHED_DEVICE" in
         SHDPKG_KERNEL_COMP='gzip'
         ;;
     orangepi-pc2)
-	SHDPKG_KERNEL_ARCH='arm64'
+        SHDPKG_KERNEL_ARCH='arm64'
         SHDPKG_DTBFILE='allwinner/sun50i-h5-orangepi-pc2.dtb'
         SHDPKG_KERNEL_LOAD='0x40080000'
         SHDPKG_KERNEL_COMP='none'
-	;;
+	    ;;
+    nanopi-m1-plus)
+        SHDPKG_KERNEL_ARCH='arm'
+        SHDPKG_DTBFILE='sun8i-h3-nanopi-m1-plus.dtb'
+        SHDPKG_KERNEL_LOAD='0x40008000'
+        SHDPKG_KERNEL_COMP='gzip'
+        ;;
+    nanopi-neo)
+        SHDPKG_KERNEL_ARCH='arm'
+        SHDPKG_DTBFILE='sun8i-h3-nanopi-neo.dtb'
+        SHDPKG_KERNEL_LOAD='0x40008000'
+        SHDPKG_KERNEL_COMP='gzip'
+        ;;
+    nanopi-neo2)
+        SHDPKG_KERNEL_ARCH='arm64'
+        SHDPKG_DTBFILE='allwinner/sun50i-h5-nanopi-neo2.dtb'
+        SHDPKG_KERNEL_LOAD='0x40080000'
+        SHDPKG_KERNEL_COMP='none'
+    	;;
+    nanopi-neo-plus2)
+        SHDPKG_KERNEL_ARCH='arm64'
+        SHDPKG_DTBFILE='allwinner/sun50i-h5-nanopi-neo-plus2.dtb'
+        SHDPKG_KERNEL_LOAD='0x40080000'
+        SHDPKG_KERNEL_COMP='none'
+    	;;
     aml-s905x-cc)
         SHDPKG_KERNEL_ARCH='arm64'
         SHDPKG_DTBFILE='amlogic/meson-gxl-s905x-libretech-cc.dtb'
@@ -57,11 +81,11 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         -d "$SHDPKG_KERNEL_IMG" \
         -a $SHDPKG_KERNEL_LOAD \
         -e $SHDPKG_KERNEL_LOAD \
-        -n 'Shedbuilt Linux 4.16.1' \
+        -n 'Shedbuilt Linux 4.16.3' \
         "${SHDPKG_BOOTPATH}/uImage" &&
 mkdir -v "${SHED_FAKEROOT}/boot" &&
-install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16.1" &&
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16.1-uImage" &&
-install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16.1.dtb" &&
-install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.1" &&
-cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.1"
+install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16.3" &&
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16.3-uImage" &&
+install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16.3.dtb" &&
+install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.3" &&
+cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.3"
