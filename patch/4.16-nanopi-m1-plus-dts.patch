@@ -1,5 +1,5 @@
 --- a/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts	2018-04-18 20:54:12.000000000 -1000
-+++ b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts	2018-04-22 21:43:50.631434695 -1000
++++ b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts	2018-04-23 07:59:42.054542646 -1000
 @@ -69,6 +69,14 @@
  	};
  };
@@ -15,7 +15,7 @@
  &ehci1 {
  	status = "okay";
  };
-@@ -119,6 +127,16 @@
+@@ -119,6 +127,21 @@
  	};
  };
 
@@ -27,6 +27,11 @@
 +	non-removable;
 +	cap-mmc-hw-reset;
 +	status = "okay";
++};
++
++&mmc2_8bit_pins {
++	drive-strength = <40>;
++	bias-pull-up;
 +};
 +
  &ohci1 {

@@ -56,6 +56,7 @@ case "$SHED_DEVICE" in
         SHDPKG_DTBFILE='allwinner/sun50i-h5-nanopi-neo-plus2.dtb'
         SHDPKG_KERNEL_LOAD='0x40080000'
         SHDPKG_KERNEL_COMP='none'
+        patch -Np1 -i "${SHED_PATCHDIR}/4.16-nanopi-neo-plus2-dts.patch" || exit 1
     	;;
     aml-s905x-cc)
         SHDPKG_KERNEL_ARCH='arm64'
