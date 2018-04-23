@@ -1,0 +1,17 @@
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h5-nanopi-neo2.dts	2018-04-18 20:54:12.000000000 -1000
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h5-nanopi-neo2.dts	2018-04-22 21:27:43.333647776 -1000
+@@ -101,6 +101,14 @@
+ 	};
+ };
+
++&codec {
++	allwinner,audio-routing =
++		"Line Out", "LINEOUT",
++		"MIC1", "Mic",
++		"Mic",  "MBIAS";
++	status = "okay";
++};
++
+ &ehci0 {
+ 	status = "okay";
+ };

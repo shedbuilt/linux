@@ -35,18 +35,21 @@ case "$SHED_DEVICE" in
         SHDPKG_DTBFILE='sun8i-h3-nanopi-m1-plus.dtb'
         SHDPKG_KERNEL_LOAD='0x40008000'
         SHDPKG_KERNEL_COMP='gzip'
+        patch -Np1 -i "${SHED_PATCHDIR}/4.16-nanopi-m1-plus-dts.patch" || exit 1
         ;;
     nanopi-neo)
         SHDPKG_KERNEL_ARCH='arm'
         SHDPKG_DTBFILE='sun8i-h3-nanopi-neo.dtb'
         SHDPKG_KERNEL_LOAD='0x40008000'
         SHDPKG_KERNEL_COMP='gzip'
+        patch -Np1 -i "${SHED_PATCHDIR}/4.16-nanopi-neo-dts.patch" || exit 1
         ;;
     nanopi-neo2)
         SHDPKG_KERNEL_ARCH='arm64'
         SHDPKG_DTBFILE='allwinner/sun50i-h5-nanopi-neo2.dtb'
         SHDPKG_KERNEL_LOAD='0x40080000'
         SHDPKG_KERNEL_COMP='none'
+        patch -Np1 -i "${SHED_PATCHDIR}/4.16-nanopi-neo2-dts.patch" || exit 1
     	;;
     nanopi-neo-plus2)
         SHDPKG_KERNEL_ARCH='arm64'
