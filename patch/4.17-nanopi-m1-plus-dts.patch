@@ -1,0 +1,68 @@
+--- a/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts	2018-04-22 16:20:09.000000000 -1000
++++ b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts	2018-04-28 18:10:00.299544518 -1000
+@@ -52,6 +52,17 @@
+ 		ethernet1 = &sdio_wifi;
+ 	};
+ 
++	connector {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_out_con>;
++			};
++		};
++	};
++
+ 	reg_gmac_3v3: gmac-3v3 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "gmac-3v3";
+@@ -69,6 +80,18 @@
+ 	};
+ };
+ 
++&codec {
++	allwinner,audio-routing =
++		"Line Out", "LINEOUT",
++		"MIC1", "Mic",
++		"Mic",  "MBIAS";
++	status = "okay";
++};
++
++&de {
++	status = "okay";
++};
++
+ &ehci1 {
+ 	status = "okay";
+ };
+@@ -94,6 +117,16 @@
+ 	};
+ };
+ 
++&hdmi {
++	status = "okay";
++};
++
++&hdmi_out {
++	hdmi_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
++
+ &ir {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&ir_pins_a>;
+@@ -127,6 +160,11 @@
+ 	status = "okay";
+ };
+ 
++&mmc2_8bit_pins {
++	drive-strength = <40>;
++	bias-pull-up;
++};
++
+ &ohci1 {
+ 	status = "okay";
+ };
