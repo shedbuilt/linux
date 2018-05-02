@@ -6,4 +6,3 @@ if [ -e $SHED_PKG_UBOOTCONFIG ]; then
     sed -i "s/kernel .*/kernel \/boot\/linux-${SHED_PKG_VERSION}-${SHED_DEVICE}-uImage/g" $SHED_PKG_UBOOTCONFIG
     sed -i "s/fdt .*/fdt \/boot\/linux-${SHED_PKG_VERSION}-${SHED_DEVICE}.dtb/g" $SHED_PKG_UBOOTCONFIG
 fi
-
