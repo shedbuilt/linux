@@ -85,11 +85,11 @@ mkimage -A $SHDPKG_KERNEL_ARCH \
         -d "$SHDPKG_KERNEL_IMG" \
         -a $SHDPKG_KERNEL_LOAD \
         -e $SHDPKG_KERNEL_LOAD \
-        -n 'Shedbuilt Linux 4.16.3' \
+        -n 'Shedbuilt Linux 4.16.7' \
         "${SHDPKG_BOOTPATH}/uImage" &&
 mkdir -v "${SHED_FAKEROOT}/boot" &&
-install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16.3" &&
-install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16.3-uImage" &&
-install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16.3.dtb" &&
-install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.3" &&
-cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.3"
+install -m644 System.map "${SHED_FAKEROOT}/boot/System.map-4.16.7" &&
+install -m755 "${SHDPKG_BOOTPATH}/uImage" "${SHED_FAKEROOT}/boot/linux-4.16.7-uImage" &&
+install -m644 "${SHDPKG_BOOTPATH}/dts/${SHDPKG_DTBFILE}" "${SHED_FAKEROOT}/boot/linux-4.16.7.dtb" &&
+install -dm755 "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.7" &&
+cp -r Documentation/* "${SHED_FAKEROOT}/usr/share/doc/linux-4.16.7"

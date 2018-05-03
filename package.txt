@@ -1,8 +1,8 @@
 NAME=linux
-VERSION=4.16.5
-REVISION=29
+VERSION=4.16.7
+REVISION=30
 LICENSE=GPL-2.0-only
-SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.5.tar.xz
-SRCMD5=2b5760ab8ec97066644337945f9bc0d8
+SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.7.tar.xz
+SRCMD5=9795a3187c791e3b79153519733f045d
 BINFILE=${NAME}_${VERSION}-${REVISION}_${SHED_RELEASE}_${SHED_DEVICE}.${BINARCHEXT}
 STRIP=no
