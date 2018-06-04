@@ -1,11 +1,10 @@
 NAME=linux
-VERSION=4.17.0-rc7
+VERSION=4.17.0
 REVISION=1
 LICENSE=GPL-2.0-only
-SRC=https://git.kernel.org/torvalds/t/linux-4.17-rc7.tar.gz
-SRCMD5=ecf0b54e056d67c7ea7c9bf4796ac0c3
-BINFILE=${SHED_PKG_NAME}_${SHED_PKG_VERSION_TRIPLET}_${SHED_RELEASE}_${SHED_DEVICE}.${SHED_BINARY_ARCHIVE_EXT}
+SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.tar.xz
+SRCMD5=5bb13a03274b66b56c85b26682e407d7
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
-OPTIONS=bootstrap|release (docs)
+OPTIONS=bootstrap|release nanopi-neo2|nanopi-neo-plus2|orangepi-pc2|all-h3-cc|nanopi-neo|nanopi-m1-plus|orangepi-one|orangepi-pc|orangepi-lite|aml-s905x-cc (docs)
 DEFAULTS=release docs
