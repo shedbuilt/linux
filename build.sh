@@ -1,7 +1,7 @@
 #!/bin/bash
 declare -A SHED_PKG_LOCAL_OPTIONS=${SHED_PKG_OPTIONS_ASSOC}
 SHED_PKG_LOCAL_KERNEL_CONFIG=''
-for $SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
+for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
     # Configure
     case "$SHED_PKG_LOCAL_OPTION" in
         all-h3-cc)
