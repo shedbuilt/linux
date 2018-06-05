@@ -106,6 +106,6 @@ install -m755 "${SHED_PKG_LOCAL_BOOTPATH}/uImage" "${SHED_FAKE_ROOT}/boot/linux-
 install -m644 "${SHED_PKG_LOCAL_BOOTPATH}/dts/${SHED_PKG_LOCAL_DTBFILE}" "${SHED_FAKE_ROOT}/boot/linux-${SHED_PKG_VERSION}.dtb" || exit 1
 # Install Documentation
 if [ -n "${SHED_PKG_LOCAL_OPTIONS[docs]}" ]; then
-    install -dm755 "${SHED_FAKE_ROOT}${SHED_PKG_DOC_INSTALL_DIR}" &&
-    cp -r Documentation/* "${SHED_FAKE_ROOT}${SHED_PKG_DOC_INSTALL_DIR}" || exit 1
+    install -dm755 "${SHED_FAKE_ROOT}${SHED_PKG_DOCS_INSTALL_DIR}" &&
+    cp -r Documentation/* "${SHED_FAKE_ROOT}${SHED_PKG_DOCS_INSTALL_DIR}" || exit 1
 fi
