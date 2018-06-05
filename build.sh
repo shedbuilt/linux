@@ -53,7 +53,7 @@ for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
             SHED_PKG_LOCAL_KERNEL_COMP='gzip'
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i-headless'
-            patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.16-nanopi-neo-dts.patch" || exit 1
+            patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.17-nanopi-neo-dts.patch" || exit 1
             ;;
         nanopi-neo2)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
