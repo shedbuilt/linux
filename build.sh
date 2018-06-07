@@ -4,42 +4,42 @@ SHED_PKG_LOCAL_KERNEL_CONFIG=''
 for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
     # Configure
     case "$SHED_PKG_LOCAL_OPTION" in
-        all-h3-cc)
+        allh3cc)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm'
             SHED_PKG_LOCAL_DTBFILE='sun8i-h3-libretech-all-h3-cc.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
             SHED_PKG_LOCAL_KERNEL_COMP='gzip'
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
             ;;
-        orangepi-one)
+        orangepione)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm'
             SHED_PKG_LOCAL_DTBFILE='sun8i-h3-orangepi-one.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
             SHED_PKG_LOCAL_KERNEL_COMP='gzip'
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
             ;;
-        orangepi-lite)
+        orangepilite)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm'
             SHED_PKG_LOCAL_DTBFILE='sun8i-h3-orangepi-lite.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
             SHED_PKG_LOCAL_KERNEL_COMP='gzip'
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
             ;;
-        orangepi-pc)
+        orangepipc)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm'
             SHED_PKG_LOCAL_DTBFILE='sun8i-h3-orangepi-pc.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
             SHED_PKG_LOCAL_KERNEL_COMP='gzip'
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
             ;;
-        orangepi-pc2)
+        orangepipc2)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
             SHED_PKG_LOCAL_DTBFILE='allwinner/sun50i-h5-orangepi-pc2.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
             SHED_PKG_LOCAL_KERNEL_COMP='none'
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i'
 	        ;;
-        nanopi-m1-plus)
+        nanopim1plus)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm'
             SHED_PKG_LOCAL_DTBFILE='sun8i-h3-nanopi-m1-plus.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
@@ -47,7 +47,7 @@ for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
             patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.17-nanopi-m1-plus-dts.patch" || exit 1
             ;;
-        nanopi-neo)
+        nanopineo)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm'
             SHED_PKG_LOCAL_DTBFILE='sun8i-h3-nanopi-neo.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
@@ -55,7 +55,7 @@ for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i-headless'
             patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.17-nanopi-neo-dts.patch" || exit 1
             ;;
-        nanopi-neo2)
+        nanopineo2)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
             SHED_PKG_LOCAL_DTBFILE='allwinner/sun50i-h5-nanopi-neo2.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
@@ -63,7 +63,7 @@ for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i-headless'
             patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.16-nanopi-neo2-dts.patch" || exit 1
     	    ;;
-        nanopi-neo-plus2)
+        nanopineoplus2)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
             SHED_PKG_LOCAL_DTBFILE='allwinner/sun50i-h5-nanopi-neo-plus2.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
@@ -71,7 +71,7 @@ for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
             SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i-headless'
             patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.16-nanopi-neo-plus2-dts.patch" || exit 1
     	    ;;
-        aml-s905x-cc)
+        amls905xcc)
             SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
             SHED_PKG_LOCAL_DTBFILE='amlogic/meson-gxl-s905x-libretech-cc.dtb'
             SHED_PKG_LOCAL_KERNEL_LOAD='0x01080000'
