@@ -1,9 +1,9 @@
 NAME=linux
-VERSION=4.17.3
-REVISION=3
+VERSION=4.17.14
+REVISION=4
 LICENSE=GPL-2.0-only
-SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.3.tar.xz
-SRCMD5=a5899b46a3d146c65bc2ba724db2f4ca
+SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.14.tar.xz
+SRCMD5=576ab91a7be69197cb0c124fdcbf58f7
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
 OPTIONS=bootstrap|release nanopineo2|nanopineoplus2|orangepipc2|allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite|amls905xcc (docs)
