@@ -1,6 +1,5 @@
 #!/bin/bash
 SHED_PKG_LOCAL_UBOOT_CONFIG='/boot/extlinux/extlinux.conf'
-SHED_PKG_LOCAL_DTB_DIR='/boot/dtb'
 SHED_PKG_LOCAL_DTB_FILE=''
 declare -a SHED_PKG_LOCAL_OPTIONS=( "$SHED_OPTIONS" )
 for SHED_PKG_LOCAL_OPTION in "${SHED_PKG_LOCAL_OPTIONS[@]}"; do
@@ -34,15 +33,13 @@ for SHED_PKG_LOCAL_OPTION in "${SHED_PKG_LOCAL_OPTIONS[@]}"; do
     	    ;;
     esac
 done
-if [ -n "$SHED_PKG_LOCAL_DTB_FILE" ]; then
-    install -m644 "${SHED_PKG_LOCAL_DTB_DIR}/${SHED_PKG_LOCAL_DTB_FILE}" "/boot/linux-${SHED_PKG_VERSION}.dtb" || exit 1
-else
+if [ -z "$SHED_PKG_LOCAL_DTB_FILE" ]; then
     echo "Aborting update to ${SHED_PKG_LOCAL_UBOOT_CONFIG} as a compatible DTB file cannot be found."
     exit 1
 fi
 if [ -e "$SHED_PKG_LOCAL_UBOOT_CONFIG" ]; then
     sed -i "s/label .*/label Shedbuilt Linux ${SHED_PKG_VERSION}/g" $SHED_PKG_LOCAL_UBOOT_CONFIG &&
     sed -i "s/kernel .*/kernel \/boot\/linux-${SHED_PKG_VERSION}-uImage/g" $SHED_PKG_LOCAL_UBOOT_CONFIG &&
-    sed -i "s/fdt .*/fdt \/boot\/linux-${SHED_PKG_VERSION}.dtb/g" $SHED_PKG_LOCAL_UBOOT_CONFIG &&
+    sed -i "s/fdt .*/fdt \/boot\/dtb\/${SHED_PKG_LOCAL_DTB_FILE}/g" $SHED_PKG_LOCAL_UBOOT_CONFIG &&
     echo "Updated ${SHED_PKG_LOCAL_UBOOT_CONFIG} to boot the newly installed kernel."
 fi
