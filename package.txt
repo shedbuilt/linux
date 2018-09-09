@@ -1,10 +1,11 @@
 NAME=linux
-VERSION=4.17.19
-REVISION=5
+VERSION=4.19-rc2
+REVISION=6
 LICENSE=GPL-2.0-only
-SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.19.tar.xz
-SRCMD5=ca4579babf2958aac4f686d49b6b8c66
+SRC=https://git.kernel.org/torvalds/t/linux-4.19-rc2.tar.gz
+SRCMD5=ab0ca391e6506a9712dab5037c204f99
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
-OPTIONS=bootstrap|release nanopineo2|nanopineoplus2|orangepipc2|allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite|amls905xcc (docs)
+ALIASES=nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i
+OPTIONS=bootstrap|release sun50i|sun8i (headless) (docs)
 DEFAULTS=release docs

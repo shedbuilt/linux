@@ -1,85 +1,27 @@
 #!/bin/bash
 declare -A SHED_PKG_LOCAL_OPTIONS=${SHED_PKG_OPTIONS_ASSOC}
-SHED_PKG_LOCAL_KERNEL_CONFIG=''
-for SHED_PKG_LOCAL_OPTION in "${!SHED_PKG_LOCAL_OPTIONS[@]}"; do
-    # Configure
-    case "$SHED_PKG_LOCAL_OPTION" in
-        allh3cc)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm'
-            SHED_PKG_LOCAL_DTBFILE='sun8i-h3-libretech-all-h3-cc.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
-            SHED_PKG_LOCAL_KERNEL_COMP='gzip'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
-            ;;
-        orangepione)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm'
-            SHED_PKG_LOCAL_DTBFILE='sun8i-h3-orangepi-one.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
-            SHED_PKG_LOCAL_KERNEL_COMP='gzip'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
-            ;;
-        orangepilite)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm'
-            SHED_PKG_LOCAL_DTBFILE='sun8i-h3-orangepi-lite.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
-            SHED_PKG_LOCAL_KERNEL_COMP='gzip'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
-            ;;
-        orangepipc)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm'
-            SHED_PKG_LOCAL_DTBFILE='sun8i-h3-orangepi-pc.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
-            SHED_PKG_LOCAL_KERNEL_COMP='gzip'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
-            ;;
-        orangepipc2)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
-            SHED_PKG_LOCAL_DTBFILE='allwinner/sun50i-h5-orangepi-pc2.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
-            SHED_PKG_LOCAL_KERNEL_COMP='none'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i'
-	        ;;
-        nanopim1plus)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm'
-            SHED_PKG_LOCAL_DTBFILE='sun8i-h3-nanopi-m1-plus.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
-            SHED_PKG_LOCAL_KERNEL_COMP='gzip'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
-            patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.17-nanopi-m1-plus-dts.patch" || exit 1
-            ;;
-        nanopineo)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm'
-            SHED_PKG_LOCAL_DTBFILE='sun8i-h3-nanopi-neo.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
-            SHED_PKG_LOCAL_KERNEL_COMP='gzip'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i-headless'
-            patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.17-nanopi-neo-dts.patch" || exit 1
-            ;;
-        nanopineo2)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
-            SHED_PKG_LOCAL_DTBFILE='allwinner/sun50i-h5-nanopi-neo2.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
-            SHED_PKG_LOCAL_KERNEL_COMP='none'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i-headless'
-            patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.16-nanopi-neo2-dts.patch" || exit 1
-    	    ;;
-        nanopineoplus2)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
-            SHED_PKG_LOCAL_DTBFILE='allwinner/sun50i-h5-nanopi-neo-plus2.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
-            SHED_PKG_LOCAL_KERNEL_COMP='none'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i-headless'
-            patch -Np1 -i "${SHED_PKG_PATCH_DIR}/4.16-nanopi-neo-plus2-dts.patch" || exit 1
-    	    ;;
-        amls905xcc)
-            SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
-            SHED_PKG_LOCAL_DTBFILE='amlogic/meson-gxl-s905x-libretech-cc.dtb'
-            SHED_PKG_LOCAL_KERNEL_LOAD='0x01080000'
-            SHED_PKG_LOCAL_KERNEL_COMP='none'
-            SHED_PKG_LOCAL_KERNEL_CONFIG='aml-s905x-cc'
-            ;;
-    esac
+declare -a SHED_PKG_LOCAL_DTBS
+# Patch
+for SHED_PKG_LOCAL_PATCH in "${SHED_PKG_PATCH_DIR}"/*; do
+     patch -Np1 -i "$SHED_PKG_LOCAL_PATCH" || exit 1
 done
+# Configure
+if [ -n "${SHED_PKG_LOCAL_OPTIONS[sun8i]}" ]; then
+    SHED_PKG_LOCAL_KERNEL_ARCH='arm'
+    SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
+    SHED_PKG_LOCAL_KERNEL_COMP='gzip'
+    SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
+    SHED_PKG_LOCAL_DTBS=( 'sun8i-h3-libretech-all-h3-cc.dtb' 'sun8i-h3-orangepi-one.dtb' 'sun8i-h3-orangepi-lite.dtb' 'sun8i-h3-orangepi-pc.dtb' 'sun8i-h3-nanopi-m1-plus.dtb' 'sun8i-h3-nanopi-neo.dtb')
+elif [ -n "${SHED_PKG_LOCAL_OPTIONS[sun50i]}" ]; then
+    SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
+    SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
+    SHED_PKG_LOCAL_KERNEL_COMP='none'
+    SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i'
+    SHED_PKG_LOCAL_DTBS=( 'allwinner/sun50i-h5-orangepi-pc2.dtb' 'allwinner/sun50i-h5-nanopi-neo2.dtb' 'allwinner/sun50i-h5-nanopi-neo-plus2.dtb')
+fi
+if [ -n "${SHED_PKG_LOCAL_OPTIONS[headless]}" ]; then
+    SHED_PKG_LOCAL_KERNEL_CONFIG="${SHED_PKG_LOCAL_KERNEL_CONFIG}-headless"
+fi
 SHED_PKG_LOCAL_BOOTPATH="arch/${SHED_PKG_LOCAL_KERNEL_ARCH}/boot"
 SHED_PKG_LOCAL_KERNEL_IMG="${SHED_PKG_LOCAL_BOOTPATH}/Image"
 cp "${SHED_PKG_CONTRIB_DIR}/${SHED_PKG_LOCAL_KERNEL_CONFIG}.config" .config &&
@@ -100,10 +42,13 @@ mkimage -A $SHED_PKG_LOCAL_KERNEL_ARCH \
         -e $SHED_PKG_LOCAL_KERNEL_LOAD \
         -n "Linux ${SHED_PKG_VERSION}" \
         "${SHED_PKG_LOCAL_BOOTPATH}/uImage" &&
-mkdir -v "${SHED_FAKE_ROOT}/boot" &&
+install -dm755 "${SHED_FAKE_ROOT}/boot/dtb" &&
 install -m644 System.map "${SHED_FAKE_ROOT}/boot/System-${SHED_PKG_VERSION}.map" &&
-install -m755 "${SHED_PKG_LOCAL_BOOTPATH}/uImage" "${SHED_FAKE_ROOT}/boot/linux-${SHED_PKG_VERSION}-uImage" &&
-install -m644 "${SHED_PKG_LOCAL_BOOTPATH}/dts/${SHED_PKG_LOCAL_DTBFILE}" "${SHED_FAKE_ROOT}/boot/linux-${SHED_PKG_VERSION}.dtb" || exit 1
+install -m755 "${SHED_PKG_LOCAL_BOOTPATH}/uImage" "${SHED_FAKE_ROOT}/boot/linux-${SHED_PKG_VERSION}-uImage" || exit 1
+# Install Device Tree binaries
+for SHED_PKG_LOCAL_DTBFILE in "${SHED_PKG_LOCAL_DTBS[@]}"; do
+    install -m644 "${SHED_PKG_LOCAL_BOOTPATH}/dts/${SHED_PKG_LOCAL_DTBFILE}" "${SHED_FAKE_ROOT}/boot/dtb" || exit 1
+done
 # Install Documentation
 if [ -n "${SHED_PKG_LOCAL_OPTIONS[docs]}" ]; then
     install -dm755 "${SHED_FAKE_ROOT}${SHED_PKG_DOCS_INSTALL_DIR}" &&
