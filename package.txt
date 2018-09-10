@@ -1,9 +1,9 @@
 NAME=linux
-VERSION=4.19-rc2
-REVISION=6
+VERSION=4.19.0-rc3
+REVISION=7
 LICENSE=GPL-2.0-only
-SRC=https://git.kernel.org/torvalds/t/linux-4.19-rc2.tar.gz
-SRCMD5=ab0ca391e6506a9712dab5037c204f99
+SRC=https://git.kernel.org/torvalds/t/linux-4.19-rc3.tar.gz
+SRCMD5=54ef709f63051bddc9d9f6c7521404ac
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
 ALIASES=nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i
