@@ -1,7 +1,7 @@
 #!/bin/bash
 SHED_PKG_LOCAL_UBOOT_CONFIG='/boot/extlinux/extlinux.conf'
 SHED_PKG_LOCAL_DTB_FILE=''
-declare -a SHED_PKG_LOCAL_OPTIONS=( ${SHED_OPTIONS} )
+declare -a SHED_PKG_LOCAL_OPTIONS=( $SHED_REQUESTED_OPTIONS )
 for SHED_PKG_LOCAL_OPTION in "${SHED_PKG_LOCAL_OPTIONS[@]}"; do
     case "$SHED_PKG_LOCAL_OPTION" in
         allh3cc)
