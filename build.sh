@@ -11,13 +11,14 @@ if [ -n "${SHED_PKG_LOCAL_OPTIONS[sun8i]}" ]; then
     SHED_PKG_LOCAL_KERNEL_LOAD='0x40008000'
     SHED_PKG_LOCAL_KERNEL_COMP='gzip'
     SHED_PKG_LOCAL_KERNEL_CONFIG='sun8i'
-    SHED_PKG_LOCAL_DTBS=( 'sun8i-h3-libretech-all-h3-cc.dtb' 'sun8i-h3-orangepi-one.dtb' 'sun8i-h3-orangepi-lite.dtb' 'sun8i-h3-orangepi-pc.dtb' 'sun8i-h3-nanopi-m1-plus.dtb' 'sun8i-h3-nanopi-neo.dtb')
+    SHED_PKG_LOCAL_DTBS=( 'sun8i-h3-libretech-all-h3-cc.dtb' 'sun8i-h3-orangepi-one.dtb' 'sun8i-h3-orangepi-lite.dtb' 'sun8i-h3-orangepi-pc.dtb' 'sun8i-h3-nanopi-m1-plus.dtb' 'sun8i-h3-nanopi-neo.dtb' )
 elif [ -n "${SHED_PKG_LOCAL_OPTIONS[sun50i]}" ]; then
     SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
     SHED_PKG_LOCAL_KERNEL_LOAD='0x40080000'
     SHED_PKG_LOCAL_KERNEL_COMP='none'
     SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i'
-    SHED_PKG_LOCAL_DTBS=( 'allwinner/sun50i-h5-orangepi-pc2.dtb' 'allwinner/sun50i-h5-nanopi-neo2.dtb' 'allwinner/sun50i-h5-nanopi-neo-plus2.dtb')
+    SHED_PKG_LOCAL_DTBS=( 'allwinner/sun50i-h5-libretech-all-h3-cc.dtb' 'allwinner/sun50i-h5-nanopi-k1-plus.dtb' 'allwinner/sun50i-h5-nanopi-neo2.dtb' 'allwinner/sun50i-h5-nanopi-neo-plus2.dtb' 'allwinner/sun50i-h5-orangepi-pc2.dtb' )
+    install -m644 "${SHED_PKG_CONTRIB_DIR}/sun50i-h5-nanopi-k1-plus.dts" arch/arm64/boot/dts/allwinner || exit 1
 fi
 if [ -n "${SHED_PKG_LOCAL_OPTIONS[headless]}" ]; then
     SHED_PKG_LOCAL_KERNEL_CONFIG="${SHED_PKG_LOCAL_KERNEL_CONFIG}-headless"

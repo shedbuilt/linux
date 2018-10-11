@@ -7,6 +7,9 @@ for SHED_PKG_LOCAL_OPTION in "${SHED_PKG_LOCAL_OPTIONS[@]}"; do
         allh3cc)
             SHED_PKG_LOCAL_DTB_FILE='sun8i-h3-libretech-all-h3-cc.dtb'
             ;;
+        allh5cc)
+            SHED_PKG_LOCAL_DTB_FILE='sun50i-h5-libretech-all-h3-cc.dtb'
+            ;;
         orangepione)
             SHED_PKG_LOCAL_DTB_FILE='sun8i-h3-orangepi-one.dtb'
             ;;
@@ -19,6 +22,9 @@ for SHED_PKG_LOCAL_OPTION in "${SHED_PKG_LOCAL_OPTIONS[@]}"; do
         orangepipc2)
             SHED_PKG_LOCAL_DTB_FILE='sun50i-h5-orangepi-pc2.dtb'
 	        ;;
+        nanopik1plus)
+            SHED_PKG_LOCAL_DTB_FILE='sun50i-h5-nanopi-k1-plus.dtb'
+            ;;
         nanopim1plus)
             SHED_PKG_LOCAL_DTB_FILE='sun8i-h3-nanopi-m1-plus.dtb'
             ;;
