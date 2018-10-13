@@ -18,14 +18,14 @@ elif [ -n "${SHED_PKG_LOCAL_OPTIONS[sun50i]}" ]; then
     SHED_PKG_LOCAL_KERNEL_COMP='none'
     SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i'
     SHED_PKG_LOCAL_DTBS=( 'allwinner/sun50i-h5-libretech-all-h3-cc.dtb' 'allwinner/sun50i-h5-nanopi-k1-plus.dtb' 'allwinner/sun50i-h5-nanopi-neo2.dtb' 'allwinner/sun50i-h5-nanopi-neo-plus2.dtb' 'allwinner/sun50i-h5-orangepi-pc2.dtb' )
-    install -m644 "${SHED_PKG_CONTRIB_DIR}/sun50i-h5-nanopi-k1-plus.dts" arch/arm64/boot/dts/allwinner || exit 1
+    install -m644 "${SHED_PKG_CONTRIB_DIR}/dts/sun50i-h5-nanopi-k1-plus.dts" arch/arm64/boot/dts/allwinner || exit 1
 fi
 if [ -n "${SHED_PKG_LOCAL_OPTIONS[headless]}" ]; then
     SHED_PKG_LOCAL_KERNEL_CONFIG="${SHED_PKG_LOCAL_KERNEL_CONFIG}-headless"
 fi
 SHED_PKG_LOCAL_BOOTPATH="arch/${SHED_PKG_LOCAL_KERNEL_ARCH}/boot"
 SHED_PKG_LOCAL_KERNEL_IMG="${SHED_PKG_LOCAL_BOOTPATH}/Image"
-cp "${SHED_PKG_CONTRIB_DIR}/${SHED_PKG_LOCAL_KERNEL_CONFIG}.config" .config &&
+cp "${SHED_PKG_CONTRIB_DIR}/config/${SHED_PKG_LOCAL_KERNEL_CONFIG}.config" .config &&
 # Build and Install
 make -j $SHED_NUM_JOBS Image dtbs modules &&
 INSTALL_MOD_PATH="$SHED_FAKE_ROOT" make modules_install || exit 1
