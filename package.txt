@@ -1,11 +1,11 @@
 NAME=linux
-VERSION=4.19.0-rc8
-REVISION=10
+VERSION=4.19.0
+REVISION=11
 LICENSE=GPL-2.0-only
-SRC=https://git.kernel.org/torvalds/t/linux-4.19-rc8.tar.gz
-SRCMD5=dc5afdb1a4325dbbc6c68e737ef2ec96
+SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz
+SRCMD5=740a90cf810c2105df8ee12e5d0bb900
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
-ALIASES=allh5cc|nanopik1plus|nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i nanopineo2|nanopineoplus2|nanopineo:headless
-OPTIONS=bootstrap|release sun50i|sun8i (headless) (docs)
+ALIASES=allh5cc|nanopik1plus|nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i
+OPTIONS=bootstrap|release sun50i|sun8i (docs)
 DEFAULTS=release docs
