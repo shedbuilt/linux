@@ -1,9 +1,9 @@
 NAME=linux
-VERSION=4.19.0
-REVISION=11
+VERSION=4.19.19
+REVISION=12
 LICENSE=GPL-2.0-only
-SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz
-SRCMD5=740a90cf810c2105df8ee12e5d0bb900
+SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.19.tar.xz
+SRCMD5=e6a678e1880ed366a860f537d82be247
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
 ALIASES=allh5cc|nanopik1plus|nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i
