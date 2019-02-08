@@ -1,6 +1,6 @@
 NAME=linux
 VERSION=4.19.19
-REVISION=12
+REVISION=13
 LICENSE=GPL-2.0-only
 SRC=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.19.tar.xz
 SRCMD5=e6a678e1880ed366a860f537d82be247
