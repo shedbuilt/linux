@@ -1,9 +1,9 @@
 NAME=linux
-VERSION=5.2.0-rc3
-REVISION=14
+VERSION=5.2.0-rc4
+REVISION=15
 LICENSE=GPL-2.0-only
-SRC=https://git.kernel.org/torvalds/t/linux-5.2-rc3.tar.gz
-SRCMD5=a4e310e7c457bc07567b54c8a834d651
+SRC=https://git.kernel.org/torvalds/t/linux-5.2-rc4.tar.gz
+SRCMD5=142c84a43550e0f80a8c27f4526b704b
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
 ALIASES=allh5cc|nanopik1plus|nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i
