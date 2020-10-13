@@ -1,0 +1,10 @@
+--- a/arch/arm64/boot/dts/allwinner/Makefile	2020-10-11 11:15:50.000000000 -1000
++++ b/arch/arm64/boot/dts/allwinner/Makefile	2020-10-13 11:50:50.210256963 -1000
+@@ -21,6 +21,7 @@
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-libretech-all-h3-cc.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-libretech-all-h3-it.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-libretech-all-h5-cc.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-nanopi-k1-plus.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-nanopi-neo2.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-nanopi-neo-plus2.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-orangepi-pc2.dtb
