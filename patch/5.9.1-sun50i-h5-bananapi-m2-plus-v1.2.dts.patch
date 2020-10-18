@@ -1,0 +1,10 @@
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h5-bananapi-m2-plus-v1.2.dts	2020-10-16 20:31:22.000000000 -1000
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h5-bananapi-m2-plus-v1.2.dts	2020-10-18 07:11:06.514973441 -1000
+@@ -3,7 +3,6 @@
+
+ /dts-v1/;
+ #include "sun50i-h5.dtsi"
+-#include "sun50i-h5-cpu-opp.dtsi"
+ #include <arm/sunxi-bananapi-m2-plus-v1.2.dtsi>
+
+ / {

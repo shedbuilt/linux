@@ -290,7 +290,7 @@
 	reg_vdd_cpux: regulator@65 {
 		compatible = "silergy,sy8106a";
 		reg = <0x65>;
-		regulator-name = "vdd-cpux";
+		regulator-name = "reg_vdd_cpux";
 		silergy,fixed-microvolt = <1200000>;
 		/*
 		 * The datasheet uses 1.1V as the minimum value of VDD-CPUX,
