@@ -4,7 +4,7 @@
  #include <dt-bindings/thermal/thermal.h>
 
  / {
-+	cpu_opp_table: cpu_opp_table {
++	cpu_opp_table: cpu-opp-table {
 +		compatible = "operating-points-v2";
 +		opp-shared;
 +
