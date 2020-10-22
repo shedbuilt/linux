@@ -1,0 +1,29 @@
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h5-orangepi-pc2.dts	2020-10-16 20:31:22.000000000 -1000
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h5-orangepi-pc2.dts	2020-10-22 11:06:12.745280719 -1000
+@@ -3,6 +3,7 @@
+
+ /dts-v1/;
+ #include "sun50i-h5.dtsi"
++#include "sun50i-h5-cpu-opp.dtsi"
+
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
+@@ -98,6 +99,18 @@
+ 	cpu-supply = <&reg_vdd_cpux>;
+ };
+
++&cpu1 {
++	cpu-supply = <&reg_vdd_cpux>;
++};
++
++&cpu2 {
++	cpu-supply = <&reg_vdd_cpux>;
++};
++
++&cpu3 {
++	cpu-supply = <&reg_vdd_cpux>;
++};
++
+ &de {
+ 	status = "okay";
+ };
