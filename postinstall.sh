@@ -37,6 +37,9 @@ for SHED_PKG_LOCAL_OPTION in "${SHED_PKG_LOCAL_OPTIONS[@]}"; do
         nanopineoplus2)
             SHED_PKG_LOCAL_DTB_FILE='sun50i-h5-nanopi-neo-plus2.dtb'
     	    ;;
+        rock64)
+            SHED_PKG_LOCAL_DTB_FILE='rk3328-rock64.dtb'
+            ;;
     esac
 done
 if [ -z "$SHED_PKG_LOCAL_DTB_FILE" ]; then

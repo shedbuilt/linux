@@ -19,6 +19,12 @@ elif [ -n "${SHED_PKG_LOCAL_OPTIONS[sun50i]}" ]; then
     SHED_PKG_LOCAL_KERNEL_CONFIG='sun50i'
     SHED_PKG_LOCAL_DTBS=( 'allwinner/sun50i-h5-libretech-all-h3-cc.dtb' 'allwinner/sun50i-h5-nanopi-k1-plus.dtb' 'allwinner/sun50i-h5-nanopi-neo2.dtb' 'allwinner/sun50i-h5-nanopi-neo-plus2.dtb' 'allwinner/sun50i-h5-orangepi-pc2.dtb' )
     install -m644 "${SHED_PKG_CONTRIB_DIR}/dts/sun50i-h5-nanopi-k1-plus.dts" arch/arm64/boot/dts/allwinner || exit 1
+elif [ -n "${SHED_PKG_LOCAL_OPTIONS[rk3328]}" ]; then
+    SHED_PKG_LOCAL_KERNEL_ARCH='arm64'
+    SHED_PKG_LOCAL_KERNEL_LOAD='0x00080000'
+    SHED_PKG_LOCAL_KERNEL_COMP='none'
+    SHED_PKG_LOCAL_KERNEL_CONFIG='rk3328'
+    SHED_PKG_LOCAL_DTBS=( 'rockchip/rk3328-rock64.dtb' )
 fi
 SHED_PKG_LOCAL_BOOTPATH="arch/${SHED_PKG_LOCAL_KERNEL_ARCH}/boot"
 SHED_PKG_LOCAL_KERNEL_IMG="${SHED_PKG_LOCAL_BOOTPATH}/Image"
