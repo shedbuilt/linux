@@ -1,9 +1,9 @@
 NAME=linux
-VERSION=5.9.1
-REVISION=16
+VERSION=5.9.3
+REVISION=17
 LICENSE=GPL-2.0-only
-SRC=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.9.1.tar.xz
-SRCMD5=199f037b5adc4ca158dc281b60a226f6
+SRC=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.9.3.tar.xz
+SRCMD5=5ba27cfd5d061947972a635fbb9b43a4
 BUILDDEPS=bc libcap libelf openssl u-boot
 STRIP=no
 ALIASES=rock64:rk3328 allh5cc|nanopik1plus|nanopineo2|nanopineoplus2|orangepipc2:sun50i allh3cc|nanopineo|nanopim1plus|orangepione|orangepipc|orangepilite:sun8i
